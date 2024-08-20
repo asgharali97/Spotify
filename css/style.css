@@ -1,0 +1,13 @@
+@font-face {
+    font-family: circ;
+    src: url(../fonts/CircularSpotifyText-Black.otf);
+}
+@font-face {
+    font-family: circ-bold;
+    src: url(../fonts/CircularSpotifyText-Bold.otf);
+}
+@font-face {
+    font-family: circ-medium;
+    src: url(../fonts/CircularSpotifyText-Medium.otf);
+}
+
