@@ -9,5 +9,149 @@
 @font-face {
     font-family: circ-medium;
     src: url(../fonts/CircularSpotifyText-Medium.otf);
+
 }
+@font-face {
+    font-family: circ-light;
+    src: url(../fonts/CircularSpotifyText-Light.otf);
+
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    background-color: black;
+    height: 100vh;
+    width: 100%;
+}
+
+.left{
+    width: 25%;
+    font-family: circ;
+}
+
+.home{
+    height:24vh ;
+}
+
+.home ul li{
+    color: #b3b3b3;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.9rem 0.5rem;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+.home ul li .svg{
+    width: 1.5rem;
+    fill: #b3b3b3;
+    transition: 0.3s ease-out;
+}
+.home ul li:hover .svg{
+    fill: black;
+}
+
+.home ul li:hover{
+    color: #ffff;
+    fill: #ffff;
+}
+
+
+.library{
+    padding: 0.5rem;
+    height: 67vh;
+    width: 95.5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.library ul li{
+    color: #b3b3b3;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    cursor: pointer;
+}
+
+.library ul li img{
+    width: 1.5rem;
+}
+
+
+.plus{
+    width:1.5vw;
+    height: 3vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s ease-in-out ;
+}
+
+.plus:hover{
+    background-color:#1f1f1f;
+    border-radius: 1.9rem;
+}
+
+.plus .plus-img{
+    width: 1rem;
+}
+
+
+.library .fotter{
+    font-family: circ-light;
+    font-size: small;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    color: #b3b3b3;
+}
+
+.fotter .links{
+    width: 50%;
+}
+
+.fotter .links span{
+    margin: 1rem;
+    line-height: 2rem;
+}
+
+.fotter button{
+    display: flex;
+    align-items: center;
+    min-width: 8vw;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    border-radius: 5rem;
+    border: solid #b3b3b3 1px;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.fotter button:hover{
+    border: solid #ffff 1px;
+    color:white;
+    font-size: 15px;
+}
+
+.fotter button img{
+    width: 1rem;
+    margin-right:0.9rem;
+    margin-left: 0.3rem;
+}
+
+.right{
+    width: 75%;
+}
+
+
 
