@@ -1,157 +1,193 @@
 @font-face {
-    font-family: circ;
-    src: url(../fonts/CircularSpotifyText-Black.otf);
+  font-family: circ;
+  src: url(../fonts/CircularSpotifyText-Black.otf);
 }
 @font-face {
-    font-family: circ-bold;
-    src: url(../fonts/CircularSpotifyText-Bold.otf);
+  font-family: circ-bold;
+  src: url(../fonts/CircularSpotifyText-Bold.otf);
 }
 @font-face {
-    font-family: circ-medium;
-    src: url(../fonts/CircularSpotifyText-Medium.otf);
-
+  font-family: circ-medium;
+  src: url(../fonts/CircularSpotifyText-Medium.otf);
 }
 @font-face {
-    font-family: circ-light;
-    src: url(../fonts/CircularSpotifyText-Light.otf);
-
+  font-family: circ-light;
+  src: url(../fonts/CircularSpotifyText-Light.otf);
 }
-*{
-    margin: 0;
-    padding: 0;
-}
-
-.container{
-    background-color: black;
-    height: 100vh;
-    width: 100%;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.left{
-    width: 25%;
-    font-family: circ;
+.container {
+  background-color: black;
+  height: 100vh;
+  width: 100%;
+  position: relative;
 }
 
-.home{
-    height:24vh ;
+.left {
+  width: 25%;
+  font-family: circ;
+}
+.logo {
+  padding: 1vw 1vw;
 }
 
-.home ul li{
-    color: #b3b3b3;
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    padding: 0.9rem 0.5rem;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.3s ease-out;
-}
-.home ul li .svg{
-    width: 1.5rem;
-    fill: #b3b3b3;
-    transition: 0.3s ease-out;
-}
-.home ul li:hover .svg{
-    fill: black;
+.logo img{
+    width: 6.5vw;
 }
 
-.home ul li:hover{
-    color: #ffff;
-    fill: #ffff;
+.home {
+  min-height: 24vh;
+  font-size: 1.2vw;
+  font-weight: 700;
 }
 
-
-.library{
-    padding: 0.5rem;
-    height: 67vh;
-    width: 95.5%;
-    display: flex;
-    justify-content: space-between;
+.home ul li {
+  color: #b3b3b3;
+  list-style: none;
+  display: flex;
+  gap: 1.5vw;
+  padding: 1vw 1vw;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease-out;
 }
 
-.library ul li{
-    color: #b3b3b3;
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    cursor: pointer;
+.home ul li .svg {
+  width: 1.9vw;
+  fill: #b3b3b3;
+  transition: 0.3s ease-out;
 }
 
-.library ul li img{
-    width: 1.5rem;
-}
-
-
-.plus{
-    width:1.5vw;
-    height: 3vh;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    transition: 0.3s ease-in-out ;
-}
-
-.plus:hover{
-    background-color:#1f1f1f;
-    border-radius: 1.9rem;
-}
-
-.plus .plus-img{
-    width: 1rem;
-}
-
-
-.library .fotter{
-    font-family: circ-light;
-    font-size: small;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 10;
-    overflow: hidden;
-    cursor: pointer;
-    margin-bottom: 2rem;
-    cursor: pointer;
-    color: #b3b3b3;
-}
-
-.fotter .links{
-    width: 50%;
-}
-
-.fotter .links span{
-    margin: 1rem;
-    line-height: 2rem;
-}
-
-.fotter button{
+.home ul li span{
     display: flex;
     align-items: center;
-    min-width: 8vw;
-    margin-top: 1.5rem;
-    margin-left: 1.5rem;
-    border-radius: 5rem;
-    border: solid #b3b3b3 1px;
-    padding: 0.5rem;
-    cursor: pointer;
+    margin-top: 0.4vw;
 }
 
-.fotter button:hover{
-    border: solid #ffff 1px;
-    color:white;
-    font-size: 15px;
+.home ul li:hover .svg {
+  fill: black;
 }
 
-.fotter button img{
-    width: 1rem;
-    margin-right:0.9rem;
-    margin-left: 0.3rem;
+.home ul li:hover {
+  color: #ffff;
+  fill: #ffff;
 }
 
-.right{
-    width: 75%;
+.library {
+  padding: 0.5vw;
+  min-height: calc(100vh - 33vh);
+  width: 95.5%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2vw;
+  font-weight: 700;
 }
 
+.library ul li {
+  color: #b3b3b3;
+  list-style: none;
+  display: flex;
+  gap: 1.5vw;
+  align-items: center;
+  cursor: pointer;
+  padding: 1vw 1vw;
+}
 
+.library ul li img {
+  width: 1.9vw;
+}
 
+.library ul li span{
+    display: flex;
+    align-items: center;
+    margin-top: 0.3vw;
+}
+
+.plus {
+  width: 2.5vw;
+  height: 5vh;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  margin-top: 1vw;
+  margin-right: 0.5vw;
+}
+
+.plus:hover {
+  background-color: #1f1f1f;
+  border-radius: 2vw;
+}
+
+.plus .plus-img {
+  width: 1.2vw;
+}
+
+.library .fotter {
+  font-family: circ-light;
+  font-size:0.8vw ;
+  font-weight: 400;
+  position: absolute;
+  top: 70vh;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  margin-bottom: 2vw;
+  cursor: pointer;
+  color: #b3b3b3;
+  padding: 1vw 1vw;
+}
+
+.fotter .links {
+  max-width: 50%;
+}
+
+.fotter .links span {
+  margin: 1vw;
+  line-height: 2vw;
+}
+
+.fotter button {
+  display: flex;
+  align-items: center;
+  min-width: 8vw;
+  margin-top: 1.5vw;
+  margin-left: 1vw;
+  border-radius: 5vw;
+  border: solid #b3b3b3 1px;
+  padding: 0.5vw 0.5vw;
+  cursor: pointer;
+  font-family: circ-bold;
+  font-size: 1vw;
+  font-weight: 700;
+}
+
+.fotter button:hover {
+  border: solid #ffff 1px;
+  color: white;
+  font-weight: 800;
+}
+
+.fotter button img {
+  width: 1.5vw;
+  margin-right: 0.9vw;
+  margin-left: 0.3vw;
+  display: flex;
+  align-items: center;
+}
+
+.fotter button span{
+    display: flex;
+    align-items: center;
+    margin-top: 0.2vw;
+}
+
+.right {
+  width: 75%;
+}
