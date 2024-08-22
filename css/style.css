@@ -191,3 +191,102 @@
 .right {
   width: 75%;
 }
+
+nav{
+    background-color: #101010;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 0vw 1vw;
+}
+
+.nav-left{
+    display: flex;
+    gap: 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-gb-btn{
+    background-color: #090909;
+    width: 2.5vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5vw;
+    cursor: pointer;
+
+}
+
+.nav-gb-btn svg{
+    width: 1.2vw;
+}
+
+.nav-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3vw;
+}
+
+.nav-login-btns{
+    font-family: circ-medium;
+    font-weight: 700;
+    font-size: 1.1vw;
+    width: 8vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5vw;
+    border: none;
+    background-color: #ffff;
+    transition: 0.2s ease-in ;
+}
+
+.nav-login-btns:hover{
+    background-color:#f0f0f0 ;
+    font-size: 1.2vw;
+    font-weight: 800;
+    padding: 1.2vw 1.2vw;
+}
+
+.nav-login-btns span{
+    display: flex;
+    align-items: center;
+    margin-top: 0.3vw;
+}
+
+.nav-signup-btns{
+    font-family: circ-medium;
+    font-weight: 700;
+    font-size: 1.1vw;
+    width: 10vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #101010;
+    border: none;
+    color: #b3b3b3;
+    transition: 0.2s ease-in ;
+}
+
+
+.nav-signup-btns:hover{
+   color:white;
+   font-size: 1.2vw;
+}
+
+
+.nav-signup-btns span{
+    display: flex;
+    align-items: center;
+    margin-top: 0.3vw;
+}
