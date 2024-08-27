@@ -344,12 +344,14 @@ nav {
   margin: 1.5vw 1vw;
   overflow-y: auto;
   max-height:70vh;
+  display: flex;
 }
 
 .card-wrap{
   display: flex;
   flex-wrap: wrap;
   gap: 1vw;
+  margin-top: 2vw;
 }
 
 .card-container h4 {
@@ -537,12 +539,12 @@ nav {
   accent-color: #1ed55f;
 }
 
-.sound svg{
+.sound img{
   width: 1.5vw;
   fill: #b3b3b3;
   cursor: pointer;
 }
 
-.sound svg:hover{
+.sound img:hover{
   fill: white;
 }

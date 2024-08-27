@@ -7,7 +7,7 @@ let currentFolder;
 // Converting seconds into minutes and seconds
 function secondsToMinutesSeconds(seconds) {
   if (isNaN(seconds) || seconds < 0) {
-      return "00:00";
+    return "00:00";
   }
 
   const minutes = Math.floor(seconds / 60);
@@ -70,17 +70,60 @@ function displaySongInLibrary() {
 
 // Music Playing function
 
-function PlayMusic(track ,pause = false){
+function PlayMusic(track, pause = false) {
   currentSong.src = `/${currentFolder}/` + track
-  if(!pause){
+  if (!pause) {
     currentSong.play()
-    img.src='../svgs/pause.svg'
-    
+    img.src = '../svgs/pause.svg'
+
   }
 }
 
+async function displayAlbums() {
+  let res = await fetch('/songs/')
+  let response = await res.text();
+  let div = document.createElement("div")
+  div.innerHTML = response;
+  let as = div.getElementsByTagName("a")
+  let cardContainer = document.querySelector('.card-container')
+  let array = Array.from(as)
+  for (let index = 0; index < array.length; index++) {
+    const e = array[index];
+    if (e.href.includes("songs/") && !e.href.includes(".htaccess")) {
+      let folder = e.href.split("/").slice(-1)[0]
+      // Get the metadata of the folder
+      let a = await fetch(`/songs/${folder}/info.json`)
+      let response = await a.json();
+      cardContainer.innerHTML = cardContainer.innerHTML += `<div data-folder="${folder}" class="card-wrap">
+            <div class="card">
+              <div class="img">
+                <img
+                  src="/songs/${folder}/cover.jpg"
+                  alt="Thumbnail"
+                />
+              </div>
+              <div class="card-info">
+                <h5>
+                  ${response.title}
+                </h5>
+              </div>
+            </div>
+          </div>`
+    }
+  }
+  Array.from(document.getElementsByClassName("card-wrap")).forEach(e => { 
+    e.addEventListener("click", async item => {
+        console.log("Fetching Songs")
+        songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)  
+        console.log(songs);
+        PlayMusic(songs[0],true)
+
+    })
+})
+}
 async function main() {
-  let get = await getSongs('songs/chill')
+  await getSongs('songs/chill')
+  await displayAlbums()
   PlayMusic(songs[0],true)
   displaySongInLibrary()
 }
@@ -103,10 +146,22 @@ play.addEventListener('click', () => {
   }
 })
 
-// Event Listeners on Volume
+// Event Listeners on Volume to change volume
 const volume = document.querySelector('.sound-progress')
-volume.addEventListener('change',(e)=>{
+volume.addEventListener('change', (e) => {
   currentSong.volume = e.target.value / 100
+})
+
+// Event Listeners on Volume icon to mute volume
+const volumeIcon = document.querySelector('.sound-svg')
+volumeIcon.addEventListener('click', (e) => {
+  if (e.target.src.includes('/svgs/sound.svg')) {
+    currentSong.volume = 0
+    e.target.src = '/svgs/mute.svg'
+  } else {
+    currentSong.volume = 1
+    e.target.src = '/svgs/sound.svg'
+  }
 })
 
 // Event Listeners on time update of song
@@ -135,8 +190,8 @@ prevSong.addEventListener('click', () => {
   console.log('prev');
   currentSong.pause()
   const index = songs.indexOf(currentSong.src.split('/').slice(-1)[0]);
-  if(index - 1 >= 0){
-     PlayMusic(songs[index-1])
+  if (index - 1 >= 0) {
+    PlayMusic(songs[index - 1])
   }
 })
 
@@ -144,9 +199,7 @@ nextSong.addEventListener('click', () => {
   console.log('next');
   currentSong.pause()
   const index = songs.indexOf(currentSong.src.split('/').slice(-1)[0]);
-  if(index + 1 < songs.length){
-     PlayMusic(songs[index + 1])
+  if (index + 1 < songs.length) {
+    PlayMusic(songs[index + 1])
   }
 })
-
-// 
