@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+:root{
+  --a:0;
+}
+
 .container {
   background-color: black;
   height: 100vh;
@@ -341,24 +345,29 @@ nav {
 }
 
 .card-container {
-  margin: 1.5vw 1vw;
+  margin: 1vw 1vw;
   overflow-y: auto;
   max-height:70vh;
   display: flex;
+  gap: 2vw;
+  position: relative;
 }
+
+
 
 .card-wrap{
   display: flex;
   flex-wrap: wrap;
-  gap: 1vw;
   margin-top: 2vw;
 }
 
-.card-container h4 {
+
+.playList{
   font-family: circ-bold;
   font-weight: 700;
   font-size: 1.8vw;
-  margin: 1.5vw 0.5vw;
+  margin: 1vw 0.5vw;
+  padding: 1vw 1vw;
 }
 
 .card {
@@ -380,12 +389,14 @@ nav {
   background-color: #1f1f1f;
 }
 
-.card .img img {
+.card-img  {
   width: 12vw;
   object-fit: contain;
   margin-bottom: 0.5vw;
   border-radius: 0.5vw;
 }
+
+
 
 .play-bar {
   max-height: 13vh;
