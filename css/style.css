@@ -82,12 +82,12 @@
 
 .library {
   padding: 0.5vw;
-  max-height: calc(100vh - 70vh);
-  min-height: calc(100vh - 48vh);
+  /* max-height: calc(100vh - 70vh); */
+  /* min-height: calc(100vh - 48vh); */
+  height: 52vh;
   width: 95.5%;
   font-size: 1.2vw;
   font-weight: 700;
-  position: relative;
 }
 
 .library-wrap{
@@ -160,6 +160,10 @@
   width: 12vw;
 }
 
+.info img{
+  width: 1.5vw;
+}
+
 .info h4{
   margin-top: 0.2vw;
   color: #b3b3b3;
@@ -186,62 +190,6 @@
   color: white;
 }
 
-
-.library .fotter {
-  font-family: circ-light;
-  font-size: 0.8vw;
-  font-weight: 400;
-  position: absolute;
-  bottom: 0;
-  cursor: pointer;
-  margin-bottom: 2vw;
-  cursor: pointer;
-  color: #b3b3b3;
-}
-
-.fotter .links {
-  max-width: 100%;
-}
-
-.fotter .links span {
-  margin: 1vw;
-  line-height: 2vw;
-}
-
-.fotter button {
-  display: flex;
-  align-items: center;
-  min-width: 8vw;
-  margin-top: 1.5vw;
-  margin-left: 1vw;
-  border-radius: 5vw;
-  border: solid #b3b3b3 1px;
-  padding: 0.5vw 0.5vw;
-  cursor: pointer;
-  font-family: circ-bold;
-  font-size: 1vw;
-  font-weight: 700;
-}
-
-.fotter button:hover {
-  border: solid #ffff 1px;
-  color: white;
-  font-weight: 800;
-}
-
-.fotter button img {
-  width: 1.5vw;
-  margin-right: 0.9vw;
-  margin-left: 0.3vw;
-  display: flex;
-  align-items: center;
-}
-
-.fotter button span {
-  display: flex;
-  align-items: center;
-  margin-top: 0.2vw;
-}
 
 .right {
   width: 75%;
@@ -377,7 +325,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.2vw;
+  padding: 0 1.2vw;
   border-radius: 0.5vw;
   cursor: pointer;
   transition: 0.3s linear all;
@@ -419,6 +367,22 @@ nav {
   justify-content: center;
   align-items: center;
   gap:2vw
+}
+
+.shuffle-song{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.3s linear all;
+}
+
+.shuffle-song svg{
+  width: 1.2vw;
+  fill:#b3b3b3
 }
 
 .prev-song{
@@ -475,6 +439,23 @@ nav {
 
 .next-song svg:hover{
   fill: white;
+}
+
+.repeat-song{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.3s linear all;
+}
+
+.repeat-song svg{
+  width: 1.2vw;
+  fill:#b3b3b3
+
 }
 
 .timeline{

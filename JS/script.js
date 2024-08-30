@@ -51,7 +51,8 @@ async function getSongs(folder) {
         </div>
         </li>` ;
   }
-  let songInfoTitle = document.querySelector(".song-details>h4")
+    // Displaying song name when load
+      let songInfoTitle = document.querySelector(".song-details>h4")
       let str = String(songs)
       let clean = str.replaceAll("%20"," ")
       let title = clean.length > 8 ? clean.substring(0,20) : clean
@@ -61,12 +62,13 @@ async function getSongs(folder) {
   let li = Array.from(document.querySelector('.song-list').getElementsByTagName("li"))
   li.forEach((e) => {
     e.addEventListener('click', () => {
+      // Displaying song name when song play
       let songInfoTitle = document.querySelector(".song-details>h4")
       let str = e.querySelector('.title').firstElementChild.getAttribute('data-full-title')
-      console.log(str);
       let clean = str.replaceAll("%20"," ")
       let title = clean.length > 8 ? clean.substring(0,20) : clean
       songInfoTitle.innerHTML = title
+      // Playing song 
       PlayMusic(e.querySelector('.title').firstElementChild.getAttribute('data-full-title'))
     })
   }
@@ -117,18 +119,19 @@ async function displayAlbums() {
               </div>
             </div>
           </div>`
-          // Display the song img when playing songs
-          let songInfoImg = document.querySelector('.song-info-img');
-          songInfoImg.src = `/songs/${folder}/cover.jpg`
-         
+          
         }
+       
     }
 
     // Load the playlist whenever card is clicked
     Array.from(document.getElementsByClassName("card-wrap")).forEach(e => { 
         e.addEventListener("click", async item => {
-            songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)  
-            PlayMusic(songs[0])
+          // Display the image in SongInfo when card clicked 
+          let songInfoImg = document.querySelector('.song-info-img')
+          songInfoImg.src = `/songs/${item.currentTarget.dataset.folder}/cover.jpg` 
+          songs.push( await getSongs(`songs/${item.currentTarget.dataset.folder}`))
+          PlayMusic(songs[0])
 
         })
     })
@@ -187,6 +190,12 @@ currentSong.addEventListener('timeupdate', () => {
   // Displaying time
   currTime.innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}`
   totalTime.innerHTML = `${secondsToMinutesSeconds(currentSong.duration)}`
+  //changing the svg pause to play and progress bar value  when song end 
+  if(currentSong.currentTime === currentSong.duration){
+    currentSong.pause()
+    img.src = '../svgs/play.svg'
+    progressBar.value = 0
+  }
 })
 
 progressBar.addEventListener('click', (e) => {
@@ -200,8 +209,14 @@ const nextSong = document.querySelector('.next-song')
 prevSong.addEventListener('click', () => {
   currentSong.pause()
   const index = songs.indexOf(currentSong.src.split('/').slice(-1)[0]);
-  if (index - 1 >= 0) {
+  if (index -1 >= 0) {
     PlayMusic(songs[index - 1])
+    let songInfoTitle = document.querySelector(".song-details>h4")
+    let str = songs[index -1]
+    let clean = str.replaceAll("%20"," ")
+    let title = clean.length > 8 ? clean.substring(0,20) : clean
+    songInfoTitle.innerHTML = title
+
   }
 })
 
@@ -210,5 +225,60 @@ nextSong.addEventListener('click', () => {
   const index = songs.indexOf(currentSong.src.split('/').slice(-1)[0]);
   if (index + 1 < songs.length) {
     PlayMusic(songs[index + 1])
+    let songInfoTitle = document.querySelector(".song-details>h4")
+    let str = songs[index + 1]
+    let clean = str.replaceAll("%20"," ")
+    let title = clean.length > 8 ? clean.substring(0,20) : clean
+    songInfoTitle.innerHTML = title
   }
 })
+
+// AddEventListener for  Repeat song 
+let repeatBtn = document.querySelector('.repeat-song');
+let rSvg = document.querySelector('.repeat-svg');
+let isRepeating = false;
+repeatBtn.addEventListener('click',()=>{
+  if(currentSong.duration > 0){
+    isRepeating = !isRepeating
+    currentSong.loop = isRepeating
+  }
+  if(isRepeating){
+    rSvg.style.fill = '#1ed55f'
+  }
+  else{
+    rSvg.style.fill = '#b3b3b3'
+  }
+})
+
+// AddEventListener to shuffle button for play next song 
+let shuffleBtn = document.querySelector('.shuffle-song');
+let shuffleSvg = document.querySelector('.shuffle-svg');
+let isShuffle = false;
+let currIndex = 0;
+
+shuffleBtn.addEventListener('click', ()=>{
+  isShuffle = !isShuffle
+  if(isShuffle){
+    shuffleSvg.style.fill = '#1ed55f'
+  }else{
+    shuffleSvg.style.fill = '#b3b3b3'
+  }
+})
+// AddEventListener on currentSong when end 
+currentSong.addEventListener('ended',()=>{
+  if(isShuffle){
+    currIndex = (currIndex + 1) % songs.length
+    if(songs[currIndex]){
+      PlayMusic(songs[currIndex])
+      // Changing name when song change
+      let songInfoTitle = document.querySelector(".song-details>h4")
+      let str = songs[currIndex]
+      let clean = str.replaceAll("%20"," ")
+      let title = clean.length > 8 ? clean.substring(0,20) : clean
+      songInfoTitle.innerHTML = title
+    }
+  }
+  else{
+    console.log('false');
+  }
+  })
