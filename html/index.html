@@ -13,7 +13,10 @@
       <div class="left bg-black round-1 p-1">
         <div class="home bg-grey round-1 p-1">
           <div class="logo">
-            <img class="invert" src="../svgs/logo.svg" alt="logo" />
+            <img class="logo-img invert" src="../svgs/logo.svg" alt="logo" />
+            <button class="close-btn">
+              <img class="invert" src="../svgs/close.svg" alt="">
+            </button>
           </div>
           <ul>
             <li>
@@ -83,6 +86,11 @@
       <div class="right bg-grey m round-1">
         <nav>
           <div class="nav-left">
+            <div class="menu">
+              <button class="nav-mune-btn">
+                <img class="invert" src="../svgs/menu.svg" alt="">
+              </button>
+            </div>
             <div class="pervious-btn">
               <button class="nav-gb-btn">
                 <svg
@@ -188,13 +196,25 @@
           </div>
           <div class="timeline">
             <div class="song-time">00:00</div>
-            <input class="progress-bar" value="0" type="range" />
+            <!-- <input class="progress-bar" value="0" type="range" /> -->
+            <div class="seekbar">
+              <div class="progress"></div>
+              <div class="circle">
+
+              </div>
+          </div>
             <div class="total-song-time">00:00</div>
           </div>
         </div>
         <div class="sound">
           <img src="../svgs/sound.svg" class="sound-svg invert" alt="">
-          <input class="sound-progress" value="20" type="range" name="" id="" />
+          <!-- <input class="sound-progress" value="20" type="range" name="" id="" /> -->
+          <div class="sound-progress">
+            <div class="progress-track"></div>
+            <div class="progress-circle">
+
+            </div>
+        </div>
         </div>
       </div>
     </div>

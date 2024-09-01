@@ -162,31 +162,56 @@ play.addEventListener('click', () => {
 
 // Event Listeners on Volume to change volume
 const volume = document.querySelector('.sound-progress')
-volume.addEventListener('change', (e) => {
-  currentSong.volume = e.target.value / 100
+const volumeProgress = document.querySelector('.progress-track')
+const volumeCircle = document.querySelector('.progress-circle')
+volume.addEventListener('click',(e)=>{
+  let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+  volumeProgress.style.width = percent + "%"
+  volumeCircle.style.left = percent + "%"
+  currentSong.volume = percent / 100
 })
+
 
 // Event Listeners on Volume icon to mute volume
 const volumeIcon = document.querySelector('.sound-svg')
 volumeIcon.addEventListener('click', (e) => {
   if (e.target.src.includes('/svgs/sound.svg')) {
     currentSong.volume = 0
+    volumeProgress.style.width = "0%"
+    volumeCircle.style.left = "0%"
     e.target.src = '/svgs/mute.svg'
   } else {
+    volumeProgress.style.width = "30%"
+    volumeCircle.style.left = "30%"
     currentSong.volume = 1
     e.target.src = '/svgs/sound.svg'
   }
 })
 
-// Event Listeners on time update of song
+// Event Listeners on time update of song and timeline
 const totalTime = document.querySelector('.total-song-time')
 const currTime = document.querySelector('.song-time')
 const progressBar = document.querySelector('.progress-bar')
+let seekbar = document.querySelector(".seekbar");
+let progress = document.querySelector(".progress");
+let circle = document.querySelector(".circle");
+
+seekbar.addEventListener("click", e => {
+  let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+  circle.style.left = percent + "%";
+  progress.style.width = percent + "%";  // Update the progress bar width
+  currentSong.currentTime = ((currentSong.duration) * percent) / 100;
+});
+
 currentSong.addEventListener('timeupdate', () => {
   // Giving value to the progress bar to update
-  progressBar.value = (currentSong.currentTime / currentSong.duration) * 100
+  let percent = (currentSong.currentTime / currentSong.duration) * 100;
+  circle.style.left = percent + "%";
+  progress.style.width = percent + "%";
+  // progressBar.value = (currentSong.currentTime / currentSong.duration) * 100
   // changing the color of progress bar
-  progressBar.style.accentColor = "#1ed55f"
+  // progressBar.style.accentColor = "#1ed55f"
+
   // Displaying time
   currTime.innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}`
   totalTime.innerHTML = `${secondsToMinutesSeconds(currentSong.duration)}`
@@ -198,9 +223,9 @@ currentSong.addEventListener('timeupdate', () => {
   }
 })
 
-progressBar.addEventListener('click', (e) => {
-  currentSong.currentTime = (e.target.value / 100) * currentSong.duration
-})
+// progressBar.addEventListener('click', (e) => {
+//   currentSong.currentTime = (e.target.value / 100) * currentSong.duration
+// })
 
 // Event Listeners on next song and previous song
 const prevSong = document.querySelector('.prev-song')
@@ -282,3 +307,18 @@ currentSong.addEventListener('ended',()=>{
     console.log('false');
   }
   })
+
+//  Open HumberMenu EventListener
+let menuBtn = document.querySelector('.nav-mune-btn');
+let left = document.querySelector('.left')
+menuBtn.addEventListener('click',()=>{
+   left.style.display = 'block'
+})
+// Close HumberMenu EventListener
+let closeBtn = document.querySelector('.close-btn');
+closeBtn.addEventListener('click',()=>{
+  left.style.display = 'none'
+})
+
+
+
