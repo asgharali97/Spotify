@@ -169,6 +169,9 @@ volume.addEventListener('click',(e)=>{
   volumeProgress.style.width = percent + "%"
   volumeCircle.style.left = percent + "%"
   currentSong.volume = percent / 100
+  if(volumeIcon.src.includes('/svgs/mute.svg')){
+    volumeIcon.src = '/svgs/sound.svg'
+  }
 })
 
 
