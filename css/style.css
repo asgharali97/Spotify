@@ -329,14 +329,13 @@ nav {
   overflow-y: auto;
   max-height: 70vh;
   display: flex;
-  flex-wrap: wrap;
   gap: 2vw;
   position: relative;
-  height: 60vh;
 }
 
 .card-wrap {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 2vw;
 }
 
@@ -607,4 +606,412 @@ h4:hover {
 
 .sound img:hover {
   fill: white;
+<<<<<<< HEAD
 }
+=======
+}
+
+@media (max-width: 1160px) {
+  .left {
+    width: 30%;
+  }
+
+  .logo .logo-img {
+    width: 8vw;
+  }
+
+  .home {
+    font-size: 1.5vw;
+  }
+
+  .home ul li .svg {
+    width: 2vw;
+  }
+
+  .library {
+    font-size: 1.5vw;
+    width: 96%;
+    height: 52vh;
+  }
+
+  .library-wrap ul li img {
+    width: 2vw;
+  }
+
+  .plus .plus-img {
+    width: 1.5vw;
+  }
+
+  .info img {
+    width: 2vw;
+  }
+
+  .playNow-img {
+    width: 1.6vw;
+  }
+
+  .card {
+    height: 18vw;
+    width: 13vw;
+    font-size: 1.5vw;
+  }
+
+  .card-img {
+    width: 13vw;
+  }
+
+  .song-details {
+    max-width: 14vw;
+  }
+
+  .song-info {
+    font-size: 1.2vw;
+  }
+
+  .song-info .song-img img {
+    width: 5vw;
+  }
+
+  .shuffle-song svg {
+    width: 1.4vw;
+  }
+
+  .prev-song svg {
+    width: 1.4vw;
+  }
+
+  .play-song {
+    width: 3vw;
+    padding: 0.7vw 0;
+  }
+
+  .play-song img {
+    width: 1.6vw;
+  }
+
+  .next-song svg {
+    width: 1.4vw;
+  }
+
+  .repeat-song svg {
+    width: 1.4vw;
+  }
+
+  .timeline {
+    width: 45vw;
+  }
+
+  .progress-bar {
+    height: 0.5vw;
+  }
+
+  .sound img {
+    width: 1.4vw;
+  }
+
+  .sound-progress {
+    width: 10vw;
+  }
+}
+
+@media (max-width: 1080px) {
+  .library {
+    height: 54vh;
+  }
+
+  .play-bar {
+    margin-bottom: 1.5vw;
+  }
+
+  .song-info .song-img img {
+    width: 6vw;
+  }
+
+  .circle {
+    width: 1.2vw;
+    height: 2.2vh;
+    bottom: 0.4vw;
+  }
+
+  .progress-circle {
+    width: 1.1vw;
+    height: 2.1vh;
+    bottom: 0.4vw;
+  }
+}
+
+@media (max-width: 960px) {
+  .nav-gb-btn {
+    width: 3.5vw;
+    height: 5vh;
+  }
+  .card {
+    height: 20vw;
+    width: 14vw;
+  }
+
+  .card-img {
+    width: 14vw;
+  }
+
+  .library {
+    height: 55vh;
+  }
+
+  .play-bar {
+    margin-bottom: 1.5vw;
+  }
+
+  .song-info .song-img img {
+    width: 6vw;
+  }
+
+  .circle {
+    width: 1.4vw;
+    height: 2.2vh;
+    bottom: 0.5vw;
+  }
+
+  .progress-circle {
+    width: 1.4vw;
+    height: 2.2vh;
+    bottom: 0.5vw;
+  }
+}
+
+@media (max-width: 850px) {
+  .close-btn {
+    display: flex;
+  }
+
+  .left {
+    width: 25%;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #090909;
+    transition: 0.4s ease-in;
+  }
+
+  .right {
+    width: 100%;
+    margin-left: 0.5vw;
+  }
+
+  .nav-gb-btn {
+    display: none;
+  }
+
+  .nav-mune-btn {
+    display: flex;
+  }
+
+  .play-bar {
+    margin-bottom: 0.8vw;
+  }
+
+  .song-info .song-img img {
+    width: 7vw;
+  }
+
+  .song-info {
+    font-size: 1.5vw;
+    margin-bottom: 1vw;
+  }
+
+  .shuffle-song svg {
+    width: 1.8vw;
+  }
+
+  .prev-song svg {
+    width: 1.8vw;
+  }
+
+  .play-song {
+    width: 3.8vw;
+    padding: 0.9vw 0;
+  }
+
+  .play-song img {
+    width: 1.8vw;
+  }
+
+  .next-song svg {
+    width: 1.8vw;
+  }
+
+  .repeat-song svg {
+    width: 1.8vw;
+  }
+
+  .timeline {
+    width: 50vw;
+  }
+
+  .seekbar {
+    width: 95%;
+  }
+
+  .circle {
+    width: 2vh;
+    height: 2vh;
+  }
+
+  .sound {
+    margin-bottom: 1vw;
+    gap: 2vw;
+  }
+
+  .sound img {
+    width: 1.8vw;
+  }
+
+  .progress-circle {
+    width: 2vh;
+    height: 2vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .close-btn {
+    width: 4vw;
+  }
+
+  .nav-mune-btn {
+    width: 4.5vw;
+  }
+
+  .library {
+    height: 56.1vh;
+  }
+  .play-bar {
+    margin-bottom: 1.5vw;
+  }
+
+  .song-info .song-img img {
+    width: 8.5vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .library {
+    height: 56.5vh;
+  }
+
+  .play-bar {
+    margin-bottom: 1.5vw;
+  }
+
+  .song-info .song-img img {
+    width: 10vw;
+  }
+
+  .circle {
+    width: 1.8vh;
+    height: 1.8vh;
+    bottom: 0.6vw;
+  }
+
+  .progress-circle {
+    width: 1.8vh;
+    height: 1.8vh;
+    bottom: 0.6vw;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .left{
+    width: 33%;
+  }
+
+  .logo .logo-img {
+    width: 10vw;
+  }
+
+  .home {
+    font-size: 1.9vw;
+  }
+
+  .home ul li {
+    padding: 2vw 1vw;
+  }
+
+  .home ul li .svg {
+    width: 3vw;
+  }
+
+  .close-btn {
+    width: 4vw;
+    height: 4vw;
+  }
+
+  .close-btn img {
+    width: 2vw;
+  }
+
+  .library-wrap ul li img {
+    width: 3vw;
+}
+
+.library {
+  height: 52.5vh;
+  font-size: 1.9vw;
+}
+
+.plus {
+  width: 3.5vw;
+  height: 3vh;
+}
+
+
+.song-list li {
+  margin: 2vw 0vw;
+}
+
+.info{
+  width: 17vw;
+}
+
+.info img {
+  width: 3vw;
+}
+
+.playNow-img {
+  width: 2vw;
+}
+
+  nav {
+    height: 7vh;
+  }
+
+  .nav-mune-btn {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .nav-mune-btn img {
+    width: 2vw;
+  }
+
+
+  .play-bar {
+    flex-direction: column;
+    justify-content: center;
+    gap: 2vw;
+  }
+
+  .song-info {
+    width: 98vw;
+    justify-content: space-between;
+  }
+
+  .song-info .song-img img {
+    width: 6vw;
+  }
+
+  .timeline {
+    width: 98vw;
+  }
+}
+>>>>>>> parent of 914d14a (made more response)
